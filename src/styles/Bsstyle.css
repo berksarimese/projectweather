@@ -1,0 +1,43 @@
+.navbar-toggler {
+    padding:5px;
+}
+
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: none;
+    background-color:rgba(255, 255, 255, 0.1);
+}
+
+.form-control:focus {
+     box-shadow: none; 
+}
+
+.bbg {
+    background: rgb(31,160,255);
+    background: linear-gradient(159deg, rgba(31,160,255,1) 0%, rgba(18,218,251,1) 33%, rgba(167,253,204,1) 100%);
+  }
+  
+  .bblury {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .bblury-input {
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bblury-input:focus {
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}

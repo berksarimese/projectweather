@@ -27,8 +27,8 @@ function Navbar(props) {
   <div className="collapse navbar-collapse justify-content-end my-2" id="navbarSupportedContent">
     <div></div>
     <form className="d-flex" onSubmit={e => e.preventDefault()}>
-      <input className="form-control me-2  bblury-input" style={{height:'30px'}} value={props.location} type="text" placeholder="Search for Location" aria-label="Search" onKeyDown={handleKeyDown} onChange={e => props.setLocation(e.target.value)}/>
-      <button className="btn btn-light py-0 btn-sm" style={{height:'30px'}} type="button" onClick={() => props.setSearch(props.location)}>Search</button>
+      <input className="form-control me-2  bblury-input" style={{height:'30px'}} value={props.location} type="text" placeholder="Bölge İsmi" aria-label="Search" onKeyDown={handleKeyDown} onChange={e => props.setLocation(e.target.value)}/>
+      <button className="btn btn-light py-0 btn-sm" style={{height:'30px'}} type="button" onClick={() => props.setSearch(props.location)}>Ara</button>
     </form>
   </div>
 </div>

@@ -1,9 +1,11 @@
 import React from 'react';
+import { useState } from 'react';
 import './App.css';
 import './styles/Bsstyle.css'
 import Main from './components/Main';
 import Navbar from './components/Navbar';
-import { useState } from 'react';
+import Footer from './components/Footer';
+
 
 
 function App() {
@@ -15,10 +17,10 @@ function App() {
 
   return (
     
-    <div className='container-fluid gx-0 bbg' style={{height:'100vh'}}>
+    <div className='container-fluid d-flex flex-column justify-content-between gx-0 bbg' style={{height:'100vh'}}>
       <Navbar search={search} setSearch={setSearch} location={location} setLocation={setLocation} />
-      <Main search={search} setSearch={setSearch} weather={weather} setWeather={setWeather} />
-      
+      <Main search={search} setSearch={setSearch} weather={weather} setWeather={setWeather} />   
+      <Footer />  
     </div>
   );
 }

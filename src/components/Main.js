@@ -77,13 +77,13 @@ function Main(props) {
 
                 <div className='d-flex justify-content-center text-center display-1 my-0 mt-4 bblury-two rounded-3' style={{fontSize:'15vw'}}><motion.div initial='degreeInitial' animate='degreeVisible' variants={anims} key={props.weather.name}>{Math.floor(props.weather.main.temp)}&#176;</motion.div></div>
                 
-                <motion.div initial='textInitial' animate='textVisible' variants={anims} key={[props.weather.weather[0].description,props.weather.name]} className='my-0 text-capitalize bblury rounded-3 text-center text-white text-dark mt-3' style={{fontSize:'1.1rem'}}>Hava: {props.weather.weather[0].description}</motion.div>
+                <motion.div initial='textInitial' animate='textVisible' variants={anims} key={[props.weather.weather[0].description,props.weather.name]} className='my-0 text-capitalize bblury rounded-3 text-center text-black-50 mt-3' style={{fontSize:'1.1rem'}}>Hava: {props.weather.weather[0].description}</motion.div>
                 
                 {props.weather.rain && (
-                  <motion.div initial='textInitial' animate='textVisible' variants={anims} key={props.weather.rain['1h']} className='my-0 text-capitalize bblury rounded-3 text-center text-white text-dark mt-3' style={{fontSize:'1.1rem'}}>Yağmur Hacmi: {props.weather.rain['1h']}mm</motion.div>
+                  <motion.div initial='textInitial' animate='textVisible' variants={anims} key={props.weather.rain['1h']} className='my-0 text-capitalize bblury rounded-3 text-center text-black-50 mt-3' style={{fontSize:'1.1rem'}}>Yağmur Hacmi: {props.weather.rain['1h']}mm</motion.div>
                 )}
                 {props.weather.snow && (
-                  <motion.div initial='textInitial' animate='textVisible' variants={anims} key={props.weather.snow['1h']} className='my-0 text-capitalize bblury rounded-3 text-center text-white text-dark mt-3' style={{fontSize:'1.1rem'}}>Kar Hacmi: {props.weather.snow['1h']}mm</motion.div>
+                  <motion.div initial='textInitial' animate='textVisible' variants={anims} key={props.weather.snow['1h']} className='my-0 text-capitalize bblury rounded-3 text-center text-black-50 mt-3' style={{fontSize:'1.1rem'}}>Kar Hacmi: {props.weather.snow['1h']}mm</motion.div>
                 )}
               </div>
             )}

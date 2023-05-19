@@ -12,19 +12,19 @@ function Main(props) {
   //DATA
   const weatherKey = "8e9ee1fb11abf672525dc41e433a1bc3";
 
-  
-
-  
   useEffect(() => {
-    axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`)
-  .then(function (fData) {
-    setHourly(fData.data);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-}, [props.search]);
+    axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/forecast?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`
+      )
+      .then(function (fData) {
+        setHourly(fData.data);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  }, [props.search]);
 
   // useEffect(() => {
   //   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`)
@@ -36,7 +36,6 @@ function Main(props) {
   //   console.log(error);
   // })
   // }, [props.search]);
-
 
   // useEffect(() => {
   //   //console.log(weather);
@@ -97,7 +96,7 @@ function Main(props) {
     },
 
     opsIni: {
-      x:0,
+      x: 0,
       opacity: 1,
     },
 
@@ -207,29 +206,24 @@ function Main(props) {
             </div>
           )}
         </div>
-        
-        <div className="col-md-8 p-0 mt-3 py-2 px-1 bblury rounded">
-        {hourly && (
-          <div className="d-flex p-0 overflow-hidden py-0" ref={containerRef}>
-            <motion.div
-              className="d-flex gap-3"
-              initial="opsHdn"
-              animate="opsIni"
-              variants={anims}
-              drag="x"
-              dragConstraints={containerRef}
-              transition={{ duration: 1 }}
-              key={hourly.city.name}
-            >
-              
 
+        <div className="col-md-8 p-0 mt-3 py-2 px-1 bblury rounded">
+          {hourly && (
+            <div className="d-flex p-0 overflow-hidden py-0" ref={containerRef}>
+              <motion.div
+                className="d-flex gap-3"
+        
+                drag="x"
+                dragConstraints={containerRef}
+                transition={{ duration: 1 }}
+                key={hourly.city.name}
+              >
                 {hourly.list.slice(0, 15).map((list, i) => (
                   <div
                     className="col bblury rounded text-black p-2"
                     style={{ width: "120px", height: "120px" }}
                     key={i}
                   >
-                    
                     <div className="d-flex flex-direction-row display-6">
                       {Math.floor(list.main.temp)}&#176;{" "}
                       <img
@@ -241,11 +235,14 @@ function Main(props) {
                     <div>{tarihHesapla(list.dt_txt)}</div>
                   </div>
                 ))}
-            </motion.div>
-          </div> 
+              </motion.div>
+            </div>
           )}
         </div>
-        <div className="col-md-8 h6 text-center text-black-50 mt-2">Diğer saatler için <span className="text-primary">yatay</span> sürükleyin</div>
+        <div className="col-md-8 h6 text-center text-black-50 mt-2">
+          Diğer saatler için <span className="text-primary">yatay</span>{" "}
+          sürükleyin
+        </div>
       </div>
     </div>
   );

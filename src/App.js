@@ -12,14 +12,13 @@ function App() {
 
   const [search, setSearch] = useState('Yalova');
   const [location, setLocation] = useState('');
-  const [weather, setWeather] = useState('');
 
 
   return (
     
     <div className='container-fluid d-flex flex-column justify-content-between gx-0 bbg' style={{height:'100vh'}}>
       <Navbar search={search} setSearch={setSearch} location={location} setLocation={setLocation} />
-      <Main search={search} setSearch={setSearch} weather={weather} setWeather={setWeather} />   
+      <Main search={search} setSearch={setSearch}/>   
       <Footer />  
     </div>
   );

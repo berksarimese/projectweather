@@ -16,7 +16,7 @@ function Main(props) {
 
   
   useEffect(() => {
-    axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`)
+    axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`)
   .then(function (fData) {
     setHourly(fData.data);
   })

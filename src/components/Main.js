@@ -15,32 +15,32 @@ function Main(props) {
   
 
   
-//   useEffect(() => {
-//     axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`)
-//   .then(function (fData) {
-//     setHourly(fData.data);
-//   })
-//   .catch(function (error) {
-//     // handle error
-//     console.log(error);
-//   })
-// }, [props.search]);
-
   useEffect(() => {
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`)
-  .then(function (wData) {
-    setWeather(wData.data);
+    axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`)
+  .then(function (fData) {
+    setHourly(fData.data);
   })
   .catch(function (error) {
     // handle error
     console.log(error);
   })
-  }, [props.search]);
+}, [props.search]);
+
+  // useEffect(() => {
+  //   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`)
+  // .then(function (wData) {
+  //   setWeather(wData.data);
+  // })
+  // .catch(function (error) {
+  //   // handle error
+  //   console.log(error);
+  // })
+  // }, [props.search]);
 
 
-  useEffect(() => {
-    //console.log(weather);
-  }, [weather]);
+  // useEffect(() => {
+  //   //console.log(weather);
+  // }, [weather]);
 
   useEffect(() => {
     console.log("SAATLİK", hourly);
@@ -131,24 +131,24 @@ function Main(props) {
     <div className="container-fluid m-0 p-0">
       <div className="d-flex justify-content-center mx-0 row col-md-12">
         <div className="col-md-8 text-white bblury rounded-3 p-4">
-          {weather && (
+          {hourly && (
             <div>
               <div className="row">
                 <motion.div
                   initial="hidden"
                   animate="visible"
                   variants={anims}
-                  key={weather.name}
+                  key={hourly.city.name}
                   className="col text-center display-2 my-0 text-uppercase"
                 >
-                  <strong>{weather.name}</strong>
+                  <strong>{hourly.city.name}</strong>
                   <span className="h6 text-capitalize">
                     {" "}
-                    - {weather.sys.country}
+                    - {hourly.city.country}
                   </span>
                   <img
                     className="d-inline align-self-center"
-                    src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+                    src={`https://openweathermap.org/img/wn/${hourly.list[0].weather[0].icon}.png`}
                     alt="none"
                     style={{ width: "70px" }}
                   ></img>
@@ -163,9 +163,9 @@ function Main(props) {
                   initial="degreeInitial"
                   animate="degreeVisible"
                   variants={anims}
-                  key={weather.name}
+                  key={hourly.city.name}
                 >
-                  {Math.floor(weather.main.temp)}&#176;
+                  {Math.floor(hourly.list[0].main.temp)}&#176;
                 </motion.div>
               </div>
 
@@ -173,42 +173,42 @@ function Main(props) {
                 initial="textInitial"
                 animate="textVisible"
                 variants={anims}
-                key={[weather.weather[0].description, weather.name]}
+                key={[hourly.list[0].weather[0].description, hourly.city.name]}
                 className="my-0 text-capitalize bblury rounded-3 text-center text-black-50 mt-3"
                 style={{ fontSize: "1.1rem" }}
               >
-                Hava: {weather.weather[0].description}
+                Hava: {hourly.list[0].weather[0].description}
               </motion.div>
 
-              {weather.rain && (
+              {hourly.list[0].rain && (
                 <motion.div
                   initial="textInitial"
                   animate="textVisible"
                   variants={anims}
-                  key={weather.rain["1h"]}
+                  key={hourly.list[0].rain["3h"]}
                   className="my-0 text-capitalize bblury rounded-3 text-center text-black-50 mt-3"
                   style={{ fontSize: "1.1rem" }}
                 >
-                  Yağmur Hacmi: {weather.rain["1h"]}mm
+                  Yağmur Hacmi: {hourly.list[0].rain["3h"]}mm
                 </motion.div>
               )}
-              {weather.snow && (
+              {hourly.list[0].snow && (
                 <motion.div
                   initial="textInitial"
                   animate="textVisible"
                   variants={anims}
-                  key={weather.snow["1h"]}
+                  key={hourly.list[0].snow["3h"]}
                   className="my-0 text-capitalize bblury rounded-3 text-center text-black-50 mt-3"
                   style={{ fontSize: "1.1rem" }}
                 >
-                  Kar Hacmi: {weather.snow["1h"]}mm
+                  Kar Hacmi: {hourly.list[0].snow["3h"]}mm
                 </motion.div>
               )}
             </div>
           )}
         </div>
         
-        {/* <div className="col-md-8 p-0 mt-3 py-2 px-1 bblury rounded">
+        <div className="col-md-8 p-0 mt-3 py-2 px-1 bblury rounded">
         {hourly && (
           <div className="d-flex p-0 overflow-hidden py-0" ref={containerRef}>
             <motion.div
@@ -245,7 +245,7 @@ function Main(props) {
           </div> 
           )}
         </div>
-        <div className="col-md-8 h6 text-center text-black-50 mt-2">Diğer saatler için <span className="text-primary">yatay</span> sürükleyin</div> */}
+        <div className="col-md-8 h6 text-center text-black-50 mt-2">Diğer saatler için <span className="text-primary">yatay</span> sürükleyin</div>
       </div>
     </div>
   );

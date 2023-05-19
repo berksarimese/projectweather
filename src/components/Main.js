@@ -15,6 +15,16 @@ function Main(props) {
   
 
   
+  useEffect(() => {
+    axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`)
+  .then(function (fData) {
+    setHourly(fData.data);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+}, [props.search]);
 
   useEffect(() => {
     axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`)
@@ -25,16 +35,8 @@ function Main(props) {
     // handle error
     console.log(error);
   })
-
-  axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`)
-  .then(function (fData) {
-    setHourly(fData.data);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
   }, [props.search]);
+
 
   useEffect(() => {
     //console.log(weather);
@@ -206,7 +208,7 @@ function Main(props) {
           )}
         </div>
         
-        <div className="col-md-8 p-0 mt-3 py-2 px-1 bblury rounded">
+        {/* <div className="col-md-8 p-0 mt-3 py-2 px-1 bblury rounded">
         {hourly && (
           <div className="d-flex p-0 overflow-hidden py-0" ref={containerRef}>
             <motion.div
@@ -243,7 +245,7 @@ function Main(props) {
           </div> 
           )}
         </div>
-        <div className="col-md-8 h6 text-center text-black-50 mt-2">Diğer saatler için <span className="text-primary">yatay</span> sürükleyin</div>
+        <div className="col-md-8 h6 text-center text-black-50 mt-2">Diğer saatler için <span className="text-primary">yatay</span> sürükleyin</div> */}
       </div>
     </div>
   );

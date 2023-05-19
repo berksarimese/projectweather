@@ -5,6 +5,7 @@ import './styles/Bsstyle.css'
 import Main from './components/Main';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Hourly from './components/Hourly';
 
 
 
@@ -19,6 +20,7 @@ function App() {
     <div className='container-fluid d-flex flex-column justify-content-between gx-0 bbg' style={{height:'100vh'}}>
       <Navbar search={search} setSearch={setSearch} location={location} setLocation={setLocation} />
       <Main search={search} setSearch={setSearch}/>   
+      <Hourly search={search} setSearch={setSearch}/>
       <Footer />  
     </div>
   );

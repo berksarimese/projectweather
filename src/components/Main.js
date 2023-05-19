@@ -12,26 +12,30 @@ function Main(props) {
   //DATA
   const weatherKey = "8e9ee1fb11abf672525dc41e433a1bc3";
 
+  
+
+  
   useEffect(() => {
-    axios
-      .all([
-        axios.get(
-          `https://api.openweathermap.org/data/2.5/weather?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`
-        ),
-        axios.get(
-          `http://api.openweathermap.org/data/2.5/forecast?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`
-        ),
-      ])
-      .then(
-        axios.spread((wData, fData) => {
-          setWeather(wData.data);
-          setHourly(fData.data);
-        })
-      )
-      .catch(function (error) {
-        // handle error
-        console.log("error");
-      });
+    axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`)
+  .then(function (fData) {
+    setHourly(fData.data);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  
+  }, [weather]);
+
+  useEffect(() => {
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`)
+  .then(function (wData) {
+    setWeather(wData.data);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
   }, [props.search]);
 
   useEffect(() => {

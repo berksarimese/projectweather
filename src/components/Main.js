@@ -205,6 +205,7 @@ function Main(props) {
         </div>
         
         <div className="col-md-8 p-0 mt-3 py-2 px-1 bblury rounded">
+        {hourly && (
           <div className="d-flex p-0 overflow-hidden py-0" ref={containerRef}>
             <motion.div
               className="d-flex gap-3"
@@ -216,8 +217,9 @@ function Main(props) {
               transition={{ duration: 1 }}
               key={hourly.city.name}
             >
-              {hourly &&
-                hourly.list.slice(0, 15).map((list, i) => (
+              
+
+                {hourly.list.slice(0, 15).map((list, i) => (
                   <div
                     className="col bblury rounded text-black p-2"
                     style={{ width: "120px", height: "120px" }}
@@ -236,7 +238,8 @@ function Main(props) {
                   </div>
                 ))}
             </motion.div>
-          </div>
+          </div> 
+          )}
         </div>
         <div className="col-md-8 h6 text-center text-black-50 mt-2">Diğer saatler için <span className="text-primary">yatay</span> sürükleyin</div>
       </div>

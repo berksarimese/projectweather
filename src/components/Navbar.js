@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Cloud from  '../images/Cloud.svg'
 import '../styles/Bsstyle.css'
 
@@ -12,6 +12,17 @@ function Navbar(props) {
       props.setSearch(props.location);
     }
   };
+
+  //LOCAL SEARCH
+  useEffect(() => {
+    const srcData = localStorage.getItem('srcData');
+    props.setSearch(srcData);
+    console.log(props.search);
+  },[])
+
+  useEffect (() => {
+    localStorage.setItem('srcData', props.search);
+  },[props.search])
 
 
   return ( 

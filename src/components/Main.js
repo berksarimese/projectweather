@@ -12,6 +12,8 @@ function Main(props) {
   //DATA
   const weatherKey = "8e9ee1fb11abf672525dc41e433a1bc3";
 
+
+  //BIG DATA
   useEffect(() => {
     axios
       .get(
@@ -26,6 +28,7 @@ function Main(props) {
       });
   }, [props.search]);
 
+  //SMALL DATA
   // useEffect(() => {
   //   axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${props.search}&appid=${weatherKey}&units=metric&lang=tr`)
   // .then(function (wData) {
@@ -42,7 +45,6 @@ function Main(props) {
   // }, [weather]);
 
   useEffect(() => {
-    console.log("SAATLİK", hourly);
     //weather && ( tarihHesapla(hourly.list[0].dt_txt) );
   }, [hourly]);
 

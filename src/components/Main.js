@@ -77,10 +77,10 @@ function Main(props) {
 
     return (
       <div className="d-flex flex-direction-column justify-content-center">
-        <div className="text-black-50" style={{fontSize:'0.7rem'}}>
+        <div className="text-black-50" style={{fontSize:'0.8rem'}}>
           {gün} {ayIsmi}  | 
         </div>
-        <div className="text-primary" style={{fontSize:'0.7rem', paddingLeft:'2px'}}>{saat}</div>
+        <div className="text-primary" style={{fontSize:'0.8rem', paddingLeft:'2px'}}>{saat}</div>
       </div>
     );
   };
@@ -98,12 +98,12 @@ function Main(props) {
     },
 
     opsIni: {
-      x: 0,
+      y: 0,
       opacity: 1,
     },
 
     opsHdn: {
-      x: -500,
+      y: -200,
       opacity: 0,
     },
 
@@ -214,9 +214,12 @@ function Main(props) {
             <div className="d-flex p-0 overflow-hidden py-0" ref={containerRef}>
               <motion.div
                 className="d-flex gap-3"
+                variants={anims}
+                initial='opsHdn'
+                animate='opsIni'
                 drag="x"
                 dragConstraints={containerRef}
-                transition={{ duration: 1 }}
+                transition={{ duration: 0.5 }}
                 key={hourly.city.name}
               >
                 {hourly.list.slice(0, 15).map((list, i) => (

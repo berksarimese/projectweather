@@ -29,7 +29,7 @@ function Navbar(props) {
    
 <nav className="navbar navbar-expand-lg py-0 shadow bblury">
 <div className="container-fluid">
-  <label className="navbar-brand my-2 py-0 h1">
+  <label className="navbar-brand d-flex align-items-center my-2 py-0 h1">
     <img src={Cloud} alt="Logo" width="40" height="40" className="d-inline-block align-text-top mx-3"/>
     <small className='align-middle text-light'>Project Weather</small></label>
   <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

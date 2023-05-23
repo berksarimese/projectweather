@@ -76,11 +76,11 @@ function Main(props) {
     const ayIsmi = ayIsimleri[ay];
 
     return (
-      <div>
-        <div className="text-black-50">
-          {gün} {ayIsmi}
+      <div className="d-flex flex-direction-column justify-content-center">
+        <div className="text-black-50" style={{fontSize:'0.7rem'}}>
+          {gün} {ayIsmi}  | 
         </div>
-        <div className="text-primary">{saat}</div>
+        <div className="text-primary" style={{fontSize:'0.7rem', paddingLeft:'2px'}}>{saat}</div>
       </div>
     );
   };
@@ -131,7 +131,7 @@ function Main(props) {
   return (
     <div className="container-fluid m-0 p-0">
       <div className="d-flex justify-content-center mx-0 row col-md-12">
-        <div className="col-md-8 text-white bblury rounded-3 p-4">
+        <div className="col-md-8 text-white bblury rounded-3 p-3">
           {hourly && (
             <div>
               <div className="row">
@@ -158,7 +158,7 @@ function Main(props) {
 
               <div
                 className="d-flex justify-content-center text-center display-1 my-0 mt-2 bblury-two rounded-3"
-                style={{ fontSize: "14vw" }}
+                style={{ fontSize: "10vw" }}
               >
                 <motion.div
                   initial="degreeInitial"
@@ -209,12 +209,11 @@ function Main(props) {
           )}
         </div>
 
-        <div className="col-md-8 p-0 mt-3 py-2 px-1 bblury rounded">
+        <div className="col-md-8 p-0 mt-3 py-2 px-3 bblury rounded">
           {hourly && (
             <div className="d-flex p-0 overflow-hidden py-0" ref={containerRef}>
               <motion.div
                 className="d-flex gap-3"
-        
                 drag="x"
                 dragConstraints={containerRef}
                 transition={{ duration: 1 }}
@@ -230,11 +229,19 @@ function Main(props) {
                       {Math.floor(list.main.temp)}&#176;{" "}
                       <img
                         className="d-inline align-self-center"
+                        style={{pointerEvents:'none'}}
                         src={`https://openweathermap.org/img/wn/${list.weather[0].icon}.png`}
                         alt="none"
                       ></img>
                     </div>
                     <div>{tarihHesapla(list.dt_txt)}</div>
+                    <div
+                      key={[list.weather[0].description, hourly.city.name]}
+                      className="my-0 p-0 text-capitalize text-success text-center"
+                      style={{fontSize:'0.7rem'}}
+                    >
+                      {list.weather[0].description}
+                  </div>
                   </div>
                 ))}
               </motion.div>

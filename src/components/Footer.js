@@ -15,7 +15,7 @@ const Footer = () => {
 
             <ul className="nav col-md-4 justify-content-end ">
               <li className="nav-item"><a href="https://www.linkedin.com/in/berk-sar%C4%B1me%C5%9Fe-8b4a9a234/" className="nav-link px-2 text-black-50">LinkedIn</a></li>
-              <li className="nav-item"><a href="https://github.com/berksarimese" className="nav-link px-2 text-black-50">GitHub aa</a></li>
+              <li className="nav-item"><a href="https://github.com/berksarimese" className="nav-link px-2 text-black-50">GitHub</a></li>
               <li className="nav-item"><a href="https://www.instagram.com/berksarimese/" className="nav-link px-2 text-black-50">Instagram</a></li>
             </ul>
           </footer>
